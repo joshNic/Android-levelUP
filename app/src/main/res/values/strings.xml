@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Github</string>
+    <string name="action_add_favourite">Add to Favourites</string>
+    <string name="action_play_next">Play Next</string>
+    <string name="backdrop_title">LOVE MUSIC</string>
+    <string name="backdrop_subtitle">This season top 20 albums</string>
+    <string name="vist_repo">Vist Repo</string>
+    <string name="share">Share</string>
+    <string name="description">ImageDescription</string>
+
 </resources>
