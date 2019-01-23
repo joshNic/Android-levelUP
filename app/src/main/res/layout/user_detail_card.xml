@@ -1,0 +1,75 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/card_margin"
+        android:elevation="3dp"
+        card_view:cardCornerRadius="@dimen/card_users__radius" tools:targetApi="lollipop">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/userNameTextView"
+                android:layout_width="270dp"
+                android:layout_height="37dp"
+                android:layout_marginEnd="43dp"
+                android:layout_marginRight="43dp"
+                android:layout_toStartOf="@+id/shareImageView"
+                android:layout_toLeftOf="@+id/shareImageView"
+                android:text="@string/share"
+                android:textSize="@dimen/text_size" />
+
+            <ImageView
+                android:id="@+id/shareImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="52dp"
+                android:layout_marginEnd="29dp"
+                android:layout_marginRight="29dp"
+                card_view:srcCompat="@android:drawable/ic_menu_set_as"
+                android:contentDescription="@string/description" />
+
+            <TextView
+                android:id="@+id/userRepoLink"
+                android:layout_width="270dp"
+                android:layout_height="37dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="51dp"
+                android:layout_marginEnd="43dp"
+                android:layout_marginRight="43dp"
+                android:text="@string/vist_repo"
+                android:textSize="@dimen/text_size" />
+
+            <ImageView
+                android:id="@+id/vistRepoLinkImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="29dp"
+                android:layout_marginRight="29dp"
+                card_view:srcCompat="?attr/actionModeShareDrawable"
+                android:contentDescription="@string/description" />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>
