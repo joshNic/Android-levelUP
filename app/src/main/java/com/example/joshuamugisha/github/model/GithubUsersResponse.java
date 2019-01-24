@@ -33,12 +33,12 @@ public class GithubUsersResponse implements Parcelable {
     private Boolean incompleteResults;
     @SerializedName("items")
     @Expose
-    private List<GithubUsers> githubUsers = null;
+    private List<GithubUsers> items = null;
 
     protected GithubUsersResponse(Parcel in) {
         this.totalCount = ((Integer) in.readValue((Integer.class.getClassLoader())));
         this.incompleteResults = ((Boolean) in.readValue((Boolean.class.getClassLoader())));
-        in.readList(this.githubUsers, (GithubUsers.class.getClassLoader()));
+        in.readList(this.items, (GithubUsers.class.getClassLoader()));
     }
 
     public GithubUsersResponse() {
@@ -60,18 +60,18 @@ public class GithubUsersResponse implements Parcelable {
         this.incompleteResults = incompleteResults;
     }
 
-    public List<GithubUsers> getGithubUsers() {
-        return githubUsers;
+    public List<GithubUsers> getItems() {
+        return items;
     }
 
-    public void setGithubUsers(List<GithubUsers> githubUsers) {
-        this.githubUsers = githubUsers;
+    public void setItems(List<GithubUsers> items) {
+        this.items = items;
     }
 
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeValue(totalCount);
         dest.writeValue(incompleteResults);
-        dest.writeList(githubUsers);
+        dest.writeList(items);
     }
 
     public int describeContents() {
