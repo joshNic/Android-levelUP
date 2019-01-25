@@ -5,14 +5,14 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class GithubService {
 
-    private GithubService() {
-        throw new IllegalStateException("Utility class");
-    }
+//    public GithubService() {
+//        throw new IllegalStateException("Utility class");
+//    }
 
-    public static final String BASE_URL = "https://api.github.com/";
-    private Retrofit retrofit = null;
+    public static final String BASE_URL = "https://api.github.com";
+    private static  Retrofit retrofit = null;
 
-   public Retrofit getDeveloperData() {
+   public static Retrofit getDeveloperData() {
 
         if (retrofit == null) {
             retrofit = new Retrofit.Builder()
