@@ -7,5 +7,7 @@
     <string name="vist_repo">Vist Repo</string>
     <string name="share">Share</string>
     <string name="description">ImageDescription</string>
+    <string name="text">TextView</string>
+    <string name="todo">TODO</string>
 
 </resources>
