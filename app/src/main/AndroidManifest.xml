@@ -2,8 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.joshuamugisha.github">
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
+        android:name=".Application.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -19,8 +21,13 @@
         </activity>
         <activity android:name=".view.UserDetailActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
-
-
+        <receiver
+            android:name=".util.NetworkReceiver"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
