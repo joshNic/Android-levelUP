@@ -8,5 +8,5 @@
     <color name="colorSecondaryLight">#ff6090</color>
     <color name="colorSecondaryDark">#b0003a</color>
     <color name="viewBg">#f1f5f8</color>
-    <color name="album_title">#4c4c4c</color>
+    <color name="users_title">#4c4c4c</color>
 </resources>

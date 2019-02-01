@@ -48,7 +48,6 @@ public class GithubAdapter extends RecyclerView.Adapter<GithubAdapter.GithubUser
         holder.name.setText(githubUser.getLogin());
         Glide.with(mContext)
                 .load(githubUser.getAvatarUrl())
-                .apply(RequestOptions.circleCropTransform())
                 .apply(new RequestOptions()
                 .placeholder(R.drawable.ic_man))
                 .into(holder.profile);
@@ -69,9 +68,9 @@ public class GithubAdapter extends RecyclerView.Adapter<GithubAdapter.GithubUser
         public GithubUserViewHolder(final View view) {
 
             super(view);
-            name = (TextView) view.findViewById(R.id.textView);
-            mUserCard = (CardView) view.findViewById(R.id.card_view);
-            profile = (ImageView) view.findViewById(R.id.imageView);
+            name = view.findViewById(R.id.textView);
+            mUserCard = view.findViewById(R.id.card_view);
+            profile = view.findViewById(R.id.imageView);
 
             view.setOnClickListener(new View.OnClickListener(){
                 @Override
@@ -83,7 +82,6 @@ public class GithubAdapter extends RecyclerView.Adapter<GithubAdapter.GithubUser
                         intent.putExtra("GithubUser", clickedUserItem);
                         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         mContext.startActivity(intent);
-                        Toast.makeText(v.getContext(), "You clicked " + clickedUserItem.getLogin(), Toast.LENGTH_SHORT).show();
                     }
                 }
             });
