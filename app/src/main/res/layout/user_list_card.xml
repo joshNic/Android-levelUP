@@ -32,11 +32,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/imageView"
+                android:background="@color/colorSecondaryLight"
                 android:textSize="@dimen/text_size"
                 android:paddingLeft="@dimen/users__title_padding"
                 android:paddingTop="@dimen/users__title_padding"
                 android:paddingRight="@dimen/users__title_padding"
-                android:textColor="@color/users_title" />
+                android:textColor="@color/viewBg" />
         </RelativeLayout>
     </android.support.v7.widget.CardView>
 </LinearLayout>

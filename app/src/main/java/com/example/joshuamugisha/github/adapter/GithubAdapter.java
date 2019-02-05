@@ -1,7 +1,9 @@
 package com.example.joshuamugisha.github.adapter;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -65,13 +67,13 @@ public class GithubAdapter extends RecyclerView.Adapter<GithubAdapter.GithubUser
         /**
          @param view
          */
+        @TargetApi(11)
         public GithubUserViewHolder(final View view) {
 
             super(view);
             name = view.findViewById(R.id.textView);
             mUserCard = view.findViewById(R.id.card_view);
             profile = view.findViewById(R.id.imageView);
-
             view.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v){

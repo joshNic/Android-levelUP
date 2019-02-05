@@ -1,29 +1,23 @@
 package com.example.joshuamugisha.github.view;
 
 
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.os.PersistableBundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-
-import android.content.res.Configuration;
-import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.v4.widget.SwipeRefreshLayout;
-
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-
-import android.widget.TextView;
-
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
-
 
 import com.example.joshuamugisha.github.Application.MyApplication;
 import com.example.joshuamugisha.github.R;
@@ -34,16 +28,15 @@ import com.example.joshuamugisha.github.util.NetworkReceiver;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements UsersView, NetworkReceiver.NetworkReceiverListener{
+public class MainActivity extends AppCompatActivity implements UsersView, NetworkReceiver.NetworkReceiverListener {
+    public final static String LIST_STATE_KEY = "recycler_list_state";
+    Parcelable listState;
     private RecyclerView recyclerView;
-
     private FloatingActionButton floatingActionButton;
     private GithubPresenter githubPresenter;
     private SwipeRefreshLayout swipeContainer;
     private ProgressBar progressBar;
     private GridLayoutManager mLayoutManager;
-    public final static String LIST_STATE_KEY = "recycler_list_state";
-    Parcelable listState;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +67,6 @@ public class MainActivity extends AppCompatActivity implements UsersView, Networ
             mLayoutManager = new GridLayoutManager(this, 3);
         }
 
-
         recyclerView.setLayoutManager(mLayoutManager);
 
         swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -87,19 +79,6 @@ public class MainActivity extends AppCompatActivity implements UsersView, Networ
                 android.R.color.holo_green_light,
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light);
-    }
-
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-
-        // Checks the orientation of the screen
-        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            mLayoutManager = new GridLayoutManager(this, 3);
-            Toast.makeText(this, "landscape", Toast.LENGTH_SHORT).show();
-        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
-            mLayoutManager = new GridLayoutManager(this, 2);
-        }
     }
 
     @Override
@@ -120,24 +99,26 @@ public class MainActivity extends AppCompatActivity implements UsersView, Networ
         return super.onOptionsItemSelected(item);
 
     }
+
     @Override
-    public void getGithubUsers(List<GithubUsers>githubUsers) {
+    public void getGithubUsers(List<GithubUsers> githubUsers) {
         recyclerView.setAdapter(new GithubAdapter(this, githubUsers));
         swipeContainer.setRefreshing(false);
         progressBar.setVisibility(View.GONE);
 
     }
 
-    protected void onSaveInstanceState(Bundle state) {
-        super.onSaveInstanceState(state);
+    public void onSaveInstanceState(Bundle state, PersistableBundle outPersistentState) {
+        super.onSaveInstanceState(state, outPersistentState);
 
         listState = mLayoutManager.onSaveInstanceState();
         state.putParcelable(LIST_STATE_KEY, listState);
+
     }
 
     protected void onRestoreInstanceState(Bundle state) {
         super.onRestoreInstanceState(state);
-        if(state != null)
+        if (state != null)
             listState = state.getParcelable(LIST_STATE_KEY);
     }
 
@@ -149,6 +130,7 @@ public class MainActivity extends AppCompatActivity implements UsersView, Networ
             mLayoutManager.onRestoreInstanceState(listState);
         }
     }
+
     private void checkConnection() {
         boolean isConnected = NetworkReceiver.isConnected();
         showSnack(isConnected);
@@ -178,6 +160,4 @@ public class MainActivity extends AppCompatActivity implements UsersView, Networ
     public void onNetworkConnectionChanged(boolean isConnected) {
         showSnack(isConnected);
     }
-
-
 }

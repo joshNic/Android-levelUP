@@ -17,5 +17,6 @@
     <dimen name="ic_users__overflow_width">20dp</dimen>
     <dimen name="ic_users__overflow_height">30dp</dimen>
     <dimen name="ic_users__overflow_margin_top">10dp</dimen>
-    <dimen name="text_size">20sp</dimen>
+    <dimen name="text_size">22sp</dimen>
+    <dimen name="text_siz">18sp</dimen>
 </resources>

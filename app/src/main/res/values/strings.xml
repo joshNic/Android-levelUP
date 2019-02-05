@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Github</string>
+    <string name="app_name"> Nairobi Java Developers</string>
     <string name="action_add_favourite">Add to Favourites</string>
     <string name="action_play_next">Play Next</string>
     <string name="backdrop_title">LOVE MUSIC</string>
@@ -9,7 +9,4 @@
     <string name="description">ImageDescription</string>
     <string name="text">TextView</string>
     <string name="menu_refresh">Refresh</string>
-
-
-
 </resources>
